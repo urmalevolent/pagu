@@ -65,7 +65,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: AdminSidebarProps) {
         {/* HEADER SIDEBAR */}
         <div className="px-6 mb-8 flex items-start gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/assets/logos-sate.webp" alt="Logo Badung" className="w-10 h-10 object-contain drop-shadow-sm shrink-0 bg-white rounded-md p-0.5" />
+          <img src="/images/assets/logos-pagu.png" alt="Logo Badung" className="w-10 h-10 object-contain drop-shadow-sm shrink-0 bg-white rounded-md p-0.5" />
           <div className="flex flex-col mt-0.5">
             <h1 className="text-2xl font-black text-white tracking-tight leading-none mb-1.5">PAGU</h1>
             <p className="text-[10px] text-slate-400 leading-snug font-medium tracking-wide pr-2">

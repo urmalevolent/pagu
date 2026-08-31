@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SATE - Sistem Aset Terintegrasi",
+  title: "PAGU - Pemeliharaan Aset Berbasis Digital",
   description: "Sistem Manajemen Aset",
 };
 

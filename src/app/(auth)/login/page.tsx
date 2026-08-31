@@ -74,12 +74,12 @@ export default function LoginPage() {
             {/* 2. REVISI: Mengganti box biru ShieldCheck dengan logo Badung di dalam box putih bersih */}
             <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg p-2.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/assets/logos-sate.webp" alt="Logo Badung" className="w-full h-full object-contain" />
+              <img src="/images/assets/logos-pagu.png" alt="Logo Badung" className="w-full h-full object-contain" />
             </div>
 
-            <h1 className="text-4xl font-extrabold text-white mb-2 tracking-tight">SATE</h1>
+            <h1 className="text-4xl font-extrabold text-white mb-2 tracking-tight">PAGU</h1>
             <p className="text-slate-300 text-lg font-medium max-w-md leading-relaxed">
-              SISTEM ASET TERINTEGRASI EFEKTIF AKUNTABEL TRANSPARAN
+              PEMELIHARAAN ASET BERBASIS DIGITAL
               <br />
               Kantor Camat Kuta Selatan.
             </p>
