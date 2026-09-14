@@ -1,33 +1,47 @@
-import { Mail, Phone } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Mail, Phone, X } from "lucide-react";
+import Image from "next/image"; // <-- PERBAIKAN 1: Import Image dari Next.js
 
 export default function AdminFooter() {
+  // State untuk mengontrol kemunculan modal popup khusus di mobile
+  const [showHelp, setShowHelp] = useState(false);
+
   return (
-    <footer className="w-full px-4 md:px-8 py-4 bg-white border-t border-slate-200 shrink-0">
+    // Penambahan sticky bottom-0 z-40 agar selalu fix di bawah
+    <footer className="sticky bottom-0 z-40 w-full px-4 md:px-8 py-4 bg-white border-t border-slate-200 shrink-0 mt-auto">
       <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-2">
-        <p>&copy; 2026 SATE - Kantor Camat Kuta Selatan.</p>
+        <p>&copy; 2026 PAGU - Kantor Camat Kuta Selatan.</p>
         <div className="flex items-center gap-6">
+          
           <div className="relative group flex items-center justify-center cursor-help">
-            <img
+            {/* PERBAIKAN 2: Mengganti <img> menjadi <Image /> */}
+            <Image
               src="/images/assets/customer-support.png"
               alt="Bantuan"
+              width={28} // w-7 di tailwind = 28px
+              height={28} // h-7 di tailwind = 28px
+              // Menambahkan onClick untuk memicu pop up modal di mobile
+              onClick={() => setShowHelp(true)}
               className="w-7 h-7 hover:scale-110 transition-transform duration-300"
             />
 
-            {/* Hover Popup Modal */}
-            <div className="absolute bottom-full right-0 mb-3 w-64 bg-white border border-slate-200 shadow-xl rounded-xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
+            {/* Hover Popup Modal (Hanya Tampil di Desktop via class hidden md:block) */}
+            <div className="hidden md:block absolute bottom-full right-0 mb-3 w-64 bg-white border border-slate-200 shadow-xl rounded-xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 z-50">
               <div className="flex flex-col gap-2 text-left">
                 <h4 className="font-bold text-slate-800 text-sm">Butuh Bantuan?</h4>
                 <p className="text-slate-600 leading-relaxed text-xs">
                   Jika Anda mengalami kendala teknis atau pertanyaan seputar penggunaan sistem SATE, silakan hubungi administrator atau tim dukungan teknis kami.
                 </p>
                 <div className="mt-3 flex flex-col gap-2 text-xs font-medium text-slate-700">
-                  <a href="mailto:gededaniel14@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                  <a href="mailto:rzqraditya05@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <Mail size={14} className="text-slate-400 shrink-0" />
-                    <span className="text-blue-600 hover:underline">gededaniel14@gmail.com</span>
+                    <span className="text-blue-600 hover:underline">rzqraditya05@gmail.com</span>
                   </a>
-                  <a href="https://wa.me/6281339172556" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                  <a href="https://wa.me/6281558111799" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <Phone size={14} className="text-slate-400 shrink-0" />
-                    <span className="text-blue-600 hover:underline">+62 813-3917-2556 (Daniel Widhi)</span>
+                    <span className="text-blue-600 hover:underline">+62 815-5811-1799 (Rizqi)</span>
                   </a>
                 </div>
               </div>
@@ -35,11 +49,38 @@ export default function AdminFooter() {
               <div className="absolute -bottom-2 right-2.5 w-4 h-4 bg-white border-b border-r border-slate-200 transform rotate-45"></div>
             </div>
           </div>
-          <span className="hover:text-blue-600 cursor-pointer transition-colors">Versi 1.0.0</span>
 
+          <span className="hover:text-blue-600 cursor-pointer transition-colors">Versi 1.0.0</span>
 
         </div>
       </div>
+
+      {/* Modal Pop Up Khusus Mobile */}
+      {showHelp && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm md:hidden" onClick={() => setShowHelp(false)}>
+          <div className="bg-white w-11/12 max-w-sm rounded-xl p-6 shadow-xl relative" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setShowHelp(false)} className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition-colors">
+              <X size={20} />
+            </button>
+            <div className="flex flex-col gap-3 text-left">
+              <h4 className="font-bold text-slate-800 text-base">Butuh Bantuan?</h4>
+              <p className="text-slate-600 leading-relaxed text-sm">
+                Jika Anda mengalami kendala teknis atau pertanyaan seputar penggunaan sistem PAGU, silakan hubungi administrator atau tim dukungan teknis kami.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 text-sm font-medium text-slate-700">
+                <a href="mailto:rzqraditya05@gmail.com" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                  <Mail size={16} className="text-slate-400 shrink-0" />
+                  <span className="text-blue-600 hover:underline">rzqraditya05@gmail.com</span>
+                </a>
+                <a href="https://wa.me/6281558111799" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+                  <Phone size={16} className="text-slate-400 shrink-0" />
+                  <span className="text-blue-600 hover:underline">+62 815-5811-1799 (Rizqi)</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </footer>
   );
 }

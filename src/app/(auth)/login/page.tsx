@@ -65,7 +65,7 @@ export default function LoginPage() {
           {/* Tombol Kembali */}
           <div data-aos="fade-down" data-aos-delay="200" className="w-fit">
             <Link href="/" className="flex items-center gap-2 text-white/80 hover:text-white transition w-fit text-sm font-medium">
-              <ArrowLeft size={18} /> Kembali ke Beranda
+              {/* <ArrowLeft size={18} /> Kembali ke Beranda */}
             </Link>
           </div>
 
@@ -154,7 +154,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-400 mt-12 lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 w-full">&copy; 2026 SI-ARSIP Kantor Camat Kuta Selatan.</p>
+          <p className="text-center text-xs text-slate-400 mt-12 lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 w-full">&copy; 2026 PAGU Kantor Camat Kuta Selatan.</p>
         </div>
       </div>
     </div>

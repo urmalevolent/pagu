@@ -95,7 +95,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: AdminSidebarProps) {
           <li>
             <button
               onClick={() => setIsPemeliharaanOpen(!isPemeliharaanOpen)}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors group ${pathname.includes("/pemeliharaan") ? "text-white bg-slate-800" : "text-slate-300 hover:bg-slate-800 hover:text-white"}`}
+              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold transition-colors group ${pathname.includes("/pemeliharaan") ? "text-white bg-blue-600/20 border-l-4 border-blue-600" : "text-slate-300 hover:bg-slate-800 hover:text-white"}`}
             >
               <div className="flex items-center gap-3">
                 <Wrench size={20} className={pathname.includes("/pemeliharaan") ? "text-blue-500" : "group-hover:text-white"} />
